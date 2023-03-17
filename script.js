@@ -1,14 +1,16 @@
-/*jshint esversion: 8 */
+/*jshint esversion: 9 */
 
-const house = {
-    isDoorOpen : false,
-    openDoor : () => {
-        house.isDoorOpen = true;
+let condition = true;
+let k = 0;
+
+while (condition) {
+    const question = prompt("Say something");
+    if (question == "") {
+        const question = prompt("Say something");
+        continue;
+    } else {
+        condition = false;
     }
-};
-
-
-house.openDoor();
-console.log(house.isDoorOpen);
+}
 
 
