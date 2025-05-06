@@ -1,0 +1,38 @@
+stages:
+  - test
+  - build
+  - test2
+  - deploy
+
+install_env:
+    stage: test
+    script:
+        - echo "test 1 -------------------"
+
+run_tests:
+    stage: test
+    script:
+        - echo "test 2 -------------------"
+
+linters:
+    stage: test
+    script:
+        - echo "test linter -------------------"
+
+build:
+    stage: build
+    script:
+        - ./build.sh
+    when: manual
+
+tests_after_biuld:
+    stage: test2
+    script:
+        - echo "test after build -------------------"
+
+deloy_job:
+    stage: deploy
+    script:
+        - ./deploy.sh
+
+
